@@ -1,0 +1,51 @@
+ <!--
+   Autor: Antonio Ríos Casado
+   Fecha: 08/10/2025
+   Descripción: Declara tres variables con var, let y const. Asigna valores de distintos tipos
+                (número, texto, booleano).
+
+                Muestra en consola el tipo de cada variable con typeof.
+
+                Prueba a cambiar el valor de cada variable y observa qué ocurre con const.
+
+                Declara una variable sin valor y verifica si es undefined.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <script>
+     // Declaración de variables con var, let y const
+        var edad = 25;               // número
+        let nombre = "Antonio";      // texto (string)
+        const activo = true;         // booleano
+
+        // Mostrar en consola el tipo de cada variable
+        console.log(typeof edad);    // number
+        console.log(typeof nombre);  // string
+        console.log(typeof activo);  // boolean
+
+        // Cambiar el valor de las variables
+        edad = 30;
+        nombre = "Ríos Casado";
+        // activo = false; // ❌ Esto daría error porque const no se puede reasignar
+
+        console.log("Edad actualizada:", edad);
+        console.log("Nombre actualizado:", nombre);
+        // console.log("Activo actualizado:", activo); // no se puede cambiar
+
+        // Declarar una variable sin valor
+        let sinValor;
+        console.log(sinValor);       // undefined
+        console.log(typeof sinValor); // "undefined"
+        
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejemplo Traversing DOM</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    ul { background: #f4f4f4; padding: 10px; list-style: none; }
+    li { padding: 6px; margin: 4px 0; background: white; border: 1px solid #ddd; }
+    .destacado { background: #d1e7dd; font-weight: bold; }
+    button { margin: 6px; }
+  </style>
+  
+  <script type="module" src="./js/05_indeTraversing.js"></script>
+</head>
+<body>
+  <h1>Ejemplo Traversing del DOM</h1>
+
+  <div id="contenedor">
+    <ul id="lista">
+      <li>Tarea 1</li>
+      <li>Tarea 2</li>
+      <li>Tarea 3</li>
+    </ul>
+  </div>
+
+  <section>
+    <button id="btnHijos">children</button>
+    <button id="btnPrimeroUltimo">firstElementChild / lastElementChild</button>
+    <button id="btnPadre">parentElement</button>
+    <button id="btnHermanos">nextElementSibling / previousElementSibling</button>
+  </section>
+
+  <p id="resultado"></p>
+
+</body>
+</html>

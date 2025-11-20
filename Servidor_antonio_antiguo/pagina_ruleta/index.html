@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="sortear()">Iniciar</button>
+<p id="res"></p>
+
+<script>
+let nombres = ["Antonio", "German", "Ali", "Alfonso", "Ángel", "Adrián", "Fernando", "Roberto", "Alfonso Leiva"];
+
+function sortear(){
+  let i=0, res=document.getElementById("res");
+  let t=setInterval(()=>{
+    res.innerText=nombres[Math.floor(Math.random()*nombres.length)];
+    if(i++>20) clearInterval(t);
+  },100);
+}
+</script>
+</body>
+</html>

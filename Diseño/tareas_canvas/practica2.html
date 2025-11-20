@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Playita Antonio Ríos Casado</title>
+</head>
+<body>
+<canvas id="miCanvas" width="500" height="300"></canvas>
+
+<script>
+const canvas = document.getElementById('miCanvas');
+const ctx = canvas.getContext('2d');
+
+let tiempo = 0;
+
+function dibujarPlayaOriginal() {
+  // Cielp
+  ctx.fillStyle = '#87CEEB';
+  ctx.fillRect(0, 0, canvas.width, 100);
+
+  // Agua
+  const tamCuadro = 10;
+  for (let x = 0; x < canvas.width; x += tamCuadro) {
+    const altura = 100 + Math.sin((x + tiempo) * 0.05) * 10;
+    for (let y = altura; y < 220; y += tamCuadro) {
+      ctx.fillStyle = '#0077cc';
+      ctx.fillRect(x, y, tamCuadro, tamCuadro);
+    }
+  }
+
+  // Playa
+  ctx.fillStyle = '#f4e27f';
+  ctx.fillRect(0, 220, canvas.width, 80);
+
+  // sol
+  ctx.beginPath();
+  ctx.moveTo(50, 80);
+  ctx.quadraticCurveTo(250, 0, 450, 80); 
+  ctx.strokeStyle = 'rgba(255,255,0,0.2)';
+  ctx.stroke();
+
+  // Calculo posición del sol
+  const t = (Math.sin(tiempo * 0.01) + 1) / 2;
+
+  const xSol = (1-t)*(1-t)*50 + 2*(1-t)*t*250 + t*t*450;
+  const ySol = (1-t)*(1-t)*80 + 2*(1-t)*t*0 + t*t*80;
+
+  // Dibujar el sol 
+  ctx.fillStyle = '#FFD700';
+  ctx.fillRect(xSol-10, ySol-10, 20, 20);
+
+  // Incrementa el tiempo y repite
+  tiempo += 2;
+  requestAnimationFrame(dibujarPlayaOriginal);
+}
+
+dibujarPlayaOriginal();
+</script>
+</body>
+</html>

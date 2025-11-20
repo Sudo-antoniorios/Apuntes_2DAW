@@ -1,0 +1,84 @@
+🧩 Ejercicios propuestos – Unidad 1: Introducción a JavaScript
+🔹 1. Integración y salida de datos
+
+Crea una página HTML que muestre un mensaje de bienvenida usando JavaScript.
+
+Muestra un mensaje distinto en la consola del navegador.
+
+Pide el nombre del usuario con prompt() y salúdalo.
+
+Usa confirm() para preguntarle si desea continuar, y muestra un mensaje diferente según la respuesta.
+
+🔹 2. Variables y tipos de datos
+
+Declara tres variables con var, let y const. Asigna valores de distintos tipos (número, texto, booleano).
+
+Muestra en consola el tipo de cada variable con typeof.
+
+Prueba a cambiar el valor de cada variable y observa qué ocurre con const.
+
+Declara una variable sin valor y verifica si es undefined.
+
+🔹 3. Operadores
+
+Crea un script que pida dos números y muestre:
+
+su suma, resta, multiplicación, división y resto.
+
+Usa operadores de comparación (>, <, ==, ===, !=) para comparar ambos números.
+
+Crea expresiones lógicas con &&, || y ! y predice el resultado antes de ejecutarlas.
+
+🔹 4. Condicionales
+
+Escribe un programa que pida la edad del usuario y diga si es mayor de edad.
+
+Haz otro que pida una nota del 0 al 10 y muestre si está “suspenso”, “aprobado”, “notable” o “sobresaliente”.
+
+Reescribe el ejercicio anterior usando el operador ternario ? : para resumir una decisión simple.
+
+🔹 5. Bucles
+
+Muestra en consola los números del 1 al 10 usando un for.
+
+Haz lo mismo con un while.
+
+Pide un número y muestra su tabla de multiplicar con un bucle.
+
+Pide al usuario 3 nombres con prompt() y guárdalos en un array. Luego muéstralos uno a uno.
+
+🔹 6. Arrays y objetos
+
+Crea un array con tus tres comidas favoritas y muestra:
+
+el primer elemento
+
+la longitud del array
+
+el array completo con un bucle
+
+Crea un objeto que represente una persona con nombre, edad y ciudad.
+
+Cambia una de sus propiedades y muestra el resultado.
+
+🔹 7. Funciones
+
+Crea una función que reciba un nombre y devuelva un saludo.
+
+Crea una función que reciba dos números y devuelva su suma.
+
+Crea una función que indique si un número es par o impar.
+
+Crea una función que calcule el precio final de un producto aplicando un descuento.
+
+🔹 8. Ejercicio final de repaso
+
+Haz un pequeño programa que:
+
+Pida el nombre, edad y país del usuario.
+
+Guarde esa información en un objeto.
+
+Muestre un mensaje en pantalla con todos esos datos.
+
+Si la edad es mayor o igual a 18, muestre un mensaje especial.

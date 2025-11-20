@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Planetas Antonio Ríos Casado</title>
+</head>
+<body>
+<canvas id="miCanvas" width="500" height="300"></canvas>
+
+<script>
+const canvas = document.getElementById('miCanvas');
+const ctx = canvas.getContext('2d');
+
+let tiempo = 0;
+
+// Estrellas aleatorisas
+const estrellas = [];
+for (let i = 0; i < 50; i++) {
+  estrellas.push({x: Math.random() * canvas.width, y: Math.random() * canvas.height, tam: Math.random() * 2 + 1});
+}
+
+function dibujarPlanetas() {
+  // Fondo negro
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Dibujar estrellas (cuadraditos)
+  for (const estrella of estrellas) {
+    ctx.fillStyle = 'white';
+    ctx.fillRect(estrella.x, estrella.y, estrella.tam, estrella.tam);
+  }
+
+  // Planeta 1
+  const x1 = 250 + Math.cos(tiempo * 0.02) * 100;
+  const y1 = 150 + Math.sin(tiempo * 0.02) * 50;
+  ctx.beginPath();
+  ctx.arc(x1, y1, 20, 0, Math.PI * 2);
+  ctx.fillStyle = '#ff5555';
+  ctx.fill();
+
+  // Planeta 2 con orbita más pequeña
+  const x2 = 250 + Math.cos(-tiempo * 0.03) * 60;
+  const y2 = 150 + Math.sin(-tiempo * 0.03) * 30;
+  ctx.beginPath();
+  ctx.arc(x2, y2, 12, 0, Math.PI * 2);
+  ctx.fillStyle = '#55ff55';
+  ctx.fill();
+
+  // Planeta 3, fijo
+  ctx.beginPath();
+  ctx.arc(400, 70, 15, 0, Math.PI * 2);
+  ctx.fillStyle = '#FFFF00';
+  ctx.fill();
+
+  tiempo += 1;
+  requestAnimationFrame(dibujarPlanetas);
+}
+
+dibujarPlanetas();
+</script>
+</body>
+</html>

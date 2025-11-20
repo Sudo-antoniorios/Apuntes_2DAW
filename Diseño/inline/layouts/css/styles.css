@@ -1,0 +1,29 @@
+* { font-family: Arial; text-align: center; }
+
+.menu { display: flex; justify-content: center; gap: 10px; }
+.menu div { border: 1px solid #000; padding: 10px; }
+
+.container { display: flex; justify-content: space-between; }
+
+.articles { display: flex; flex-wrap: wrap; gap: 10px; width: 75%; }
+.card { flex: 1 1 calc(33.3% - 20px); border: 1px solid #000; padding: 10px; }
+
+.sidebar { width: 22%; border: 1px solid #000; padding: 10px; }
+.pub-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin: 5px;
+    display: inline-block; 
+    border: 1px solid #000;
+}
+
+
+.footer .social { display: flex; justify-content: center; gap: 15px; }
+
+.icon {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    margin: 0 10px;
+}

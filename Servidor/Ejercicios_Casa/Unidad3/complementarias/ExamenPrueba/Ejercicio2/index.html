@@ -1,0 +1,45 @@
+<!-- // Crea un archivo formulario.php que muestre un formulario con:
+
+// * Un campo de texto para el *nombre del cliente*.
+// * Un grupo de *checkbox* con productos ("Pan", "Leche", "Huevos", "Café").
+// * Un botón *Enviar*.
+
+// Al enviar el formulario (POST), otro archivo procesar.php debe:
+
+// 1. Mostrar el nombre del cliente en mayúsculas.
+// 2. Mostrar qué productos seleccionó (si no marcó ninguno, mostrar "No seleccionaste ningún producto.").
+// 3. Calcular el total sabiendo que:
+
+//    * Pan → 1.5€
+//    * Leche → 1.2€
+//    * Huevos → 2€
+//    * Café → 3€
+// 4. Si el total es mayor de *5€, aplicar un **10% de descuento* y mostrar el precio final. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="formulario.php" method="post">
+        <label for="nombre">Nombre del cliente:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label>Productos:</label><br>
+        <input type="checkbox" id="pan" name="productos[]" value="Pan">
+        <label for="pan">Pan (1.5€)</label><br>
+        <input type="checkbox" id="leche" name="productos[]" value="Leche">
+        <label for="leche">Leche (1.2€)</label><br>
+        <input type="checkbox" id="huevos" name="productos[]" value="Huevos">
+        <label for="huevos">Huevos (2€)</label><br>
+        <input type="checkbox" id="cafe" name="productos[]" value="Café">
+        <label for="cafe">Café (3€)</label><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+</body>
+</html>

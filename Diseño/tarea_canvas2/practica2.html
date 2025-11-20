@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Imagen Antonio Ríos</title>
+</head>
+<body>
+  <h2>Imagen original y recortada/redimensionada con Canvas</h2>
+
+  <!-- Canvas para la imagen recortada -->
+  <canvas id="canvasRecortado" width="200" height="200"></canvas>
+
+  <br>
+
+  <!-- Imagen original -->
+  <img id="imagenOriginal" src="https://stickerly.pstatic.net/sticker_pack/9wZjwG4DgOBa7rNESNCQ/X0BO58/17/1703668237469.png" alt="Original" width="300">
+
+  <script>
+    const canvas = document.getElementById('canvasRecortado');
+    const ctx = canvas.getContext('2d');
+
+    const img = new Image();
+    img.src = 'https://stickerly.pstatic.net/sticker_pack/9wZjwG4DgOBa7rNESNCQ/X0BO58/17/1703668237469.png'; // Imagen de ejemplo
+
+    img.onload = () => {
+      //Recortar un area de la imagen original
+      const origenX = 50; // punto x donde empieza el recorte
+      const origenY = 50; // punto y donde empieza el recorte
+      const anchoRecorte = 200;
+      const altoRecorte = 200;
+
+      // --- Dibujar el recorte en el canvas y redimensionar ---
+      ctx.drawImage(
+        img,
+        origenX, origenY, anchoRecorte, altoRecorte, // aera de la imagen original
+        0, 0, canvas.width, canvas.height            // area en el canvas
+      );
+    }
+  </script>
+</body>
+</html>

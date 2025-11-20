@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hexágono Antonio Ríos</title>
+  <style>
+    body { background: #f0f0f0; text-align: center; font-family: sans-serif; }
+    canvas { margin-top: 20px; border: 1px solid #333; }
+  </style>
+</head>
+<body>
+  <h2>Hexágono Brillante</h2>
+  <canvas id="miCanvas" width="300" height="300"></canvas>
+
+  <script>
+    const canvas = document.getElementById('miCanvas');
+    const ctx = canvas.getContext('2d');
+
+    //degradado 
+    const gradient = ctx.createLinearGradient(50, 50, 250, 250);
+    gradient.addColorStop(0, '#4facfe');  // azul claro
+    gradient.addColorStop(1, '#00f2fe');  // azul más brillante
+
+    //Hexágono ---
+    const centerX = 150;
+    const centerY = 150;
+    const radius = 80;
+    ctx.beginPath();
+    for (let i = 0; i <= 6; i++) { // 6 lados + 1 para cerrar
+      const angle = (i * Math.PI / 3) - Math.PI / 2;
+      const x = centerX + radius * Math.cos(angle);
+      const y = centerY + radius * Math.sin(angle);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+
+    ctx.fillStyle = gradient; // degradado de adentro
+    ctx.fill();
+
+    ctx.strokeStyle = '#333'; // borde oscuro
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    // --- Nombre debajo ---
+    ctx.fillStyle = '#333';
+    ctx.font = '20px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Hexágono Brillante', canvas.width / 2, 280);
+  </script>
+</body>
+</html>

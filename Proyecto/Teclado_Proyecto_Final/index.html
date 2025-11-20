@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teclado Eye Tracking — Futurista</title>
+
+  <!-- WebGazer -->
+  <script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="logo">ET</div>
+      <div>
+        <h1>Teclado Eye-Tracking — Modo Futurista</h1>
+        <p class="lead">
+          Teclado en pantalla controlado por la mirada. Incluye calibración para mejorar la precisión.
+        </p>
+      </div>
+    </header>
+
+    <div id="topbar">
+      <div class="controls">
+        <button id="btn-calib" class="btn primary">Iniciar calibración</button>
+        <button id="btn-reset" class="btn">Reiniciar calibración</button>
+        <button id="btn-toggle" class="btn">Pausar rastreo</button>
+      </div>
+      <div class="hud">
+        <div class="small">Estado: <span id="status" class="status">Inactivo</span></div>
+        <div class="small">Offset: <span id="offsetInfo">0, 0</span></div>
+      </div>
+    </div>
+
+    <div id="keyboard"></div>
+
+    <div id="outputBox">
+      <p id="outputText"></p>
+    </div>
+  </div>
+
+  <!-- Script principal -->
+  <script src="app.js"></script>
+</body>
+</html>

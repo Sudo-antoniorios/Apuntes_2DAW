@@ -1,0 +1,15 @@
+{
+    "name": "gcosano/protectora_mvc",
+    "autoload": {
+        "psr-4": {
+            "Gcosano\\ProtectoraMvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "German",
+            "email": "gcostor0608@gmail.com"
+        }
+    ],
+    "require": {}
+}
