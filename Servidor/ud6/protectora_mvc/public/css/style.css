@@ -1,0 +1,88 @@
+/*
+ * @author: Antonio Ríos Casado
+ * 
+ * Fecha : 20-11-2025
+ *
+ */
+ 
+body {
+    font-family: Arial, sans-serif;
+    background: #fafafa;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centra todo */
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    background: #eee;
+    color: #222;
+    padding: 8px 12px;
+    width: 320px;
+    text-align: center;
+}
+
+form {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    width: 320px;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 6px;
+    margin: 5px 0 10px 0;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+button {
+    padding: 7px 10px;
+    background: #444;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background: #333;
+}
+
+table {
+    width: 700px;
+    /* Tamaño fijo y centrado */
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #eee;
+    border-bottom: 1px solid #ccc;
+    padding: 6px;
+    text-align: left;
+}
+
+td {
+    padding: 6px;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+a {
+    color: #0066cc;
+    font-size: 13px;
+}
+
+a:hover {
+    text-decoration: underline;
+}

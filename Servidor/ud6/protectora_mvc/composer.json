@@ -1,15 +1,10 @@
 {
-    "name": "gcosano/protectora_mvc",
     "autoload": {
         "psr-4": {
-            "Gcosano\\ProtectoraMvc\\": "src/"
+            "App\\": "app/"
         }
     },
-    "authors": [
-        {
-            "name": "German",
-            "email": "gcostor0608@gmail.com"
-        }
-    ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
 }

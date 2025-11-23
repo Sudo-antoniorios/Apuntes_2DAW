@@ -1,0 +1,143 @@
+<?php
+
+/*
+ * @author: Antonio Ríos Casado
+ * 
+ * Fecha : 20-11-2025
+ *
+ */
+
+namespace App\Models;
+
+abstract class DAbstractModel
+{
+    // Configuración de la base de datos (asegúrate de tener estas constantes definidas)
+    private static $db_host = 'localhost';
+    private static $db_user = 'usuario';
+    private static $db_pass = 'usuario';
+    private static $db_name = 'bd_superheroes';
+    private static $db_port = 3306;
+
+    // Conexión singleton
+    private static $connection = null;
+
+    // Propiedades para manejo de errores y resultados
+    protected $error = false;
+    protected $message = '';
+    protected $query;
+    protected $params = [];
+    protected $rows = [];
+    protected $affected_rows = 0;
+
+    // Métodos abstractos que deben implementar las clases hijas
+    abstract protected function get($id = '');    // READ
+    abstract protected function set();            // CREATE
+    abstract protected function delete($id = ''); // DELETE
+    abstract protected function edit();           // UPDATE
+
+    // Obtener la conexión (singleton)
+    protected function getConnection()
+    {
+        if (self::$connection === null) {
+            self::$connection = $this->open_connection();
+        }
+        return self::$connection;
+    }
+
+    // Abrir la conexión a la base de datos
+    protected function open_connection()
+    {
+        $dsn = sprintf(
+            "mysql:host=%s;port=%s;dbname=%s;charset=utf8",
+            self::$db_host,
+            self::$db_port,
+            self::$db_name
+        );
+        try {
+            $pdo = new \PDO($dsn, self::$db_user, self::$db_pass);
+            $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $pdo->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+        } catch (\PDOException $th) {
+            $this->error = true;
+            $this->message = $th->getMessage();
+            throw $th;
+        }
+        return $pdo;
+    }
+
+    protected function execute_single_query()
+    {
+        try {
+            $conn = $this->getConnection();
+            $stmt = $conn->prepare($this->query);
+            $stmt->execute($this->params);
+            $this->affected_rows = $stmt->rowCount();
+        } catch (\PDOException $th) {
+            $this->error = true;
+            $this->message = $th->getMessage();
+        }
+    }
+
+    protected function get_results_from_query()
+    {
+        try {
+            $conn = $this->getConnection();
+            $stmt = $conn->prepare($this->query);
+            $stmt->execute($this->params);
+            $this->rows = $stmt->fetchAll();
+            $this->affected_rows = $stmt->rowCount();
+        } catch (\PDOException $th) {
+            $this->error = true;
+            $this->message = $th->getMessage();
+        }
+    }
+
+    protected function get_single_result()
+    {
+        $this->get_results_from_query();
+        return $this->rows[0] ?? null;
+    }
+
+    public function beginTransaction()
+    {
+        return $this->getConnection()->beginTransaction();
+    }
+
+    public function commit()
+    {
+        return $this->getConnection()->commit();
+    }
+
+    public function rollBack()
+    {
+        return $this->getConnection()->rollBack();
+    }
+
+    public function getRows()
+    {
+        return $this->rows;
+    }
+
+    public function getAffectedRows()
+    {
+        return $this->affected_rows;
+    }
+
+    public function getMensaje()
+    {
+        return $this->message;
+    }
+
+    protected function clearParameters()
+    {
+        $this->params = [];
+        $this->query = '';
+        $this->rows = [];
+        $this->affected_rows = 0;
+    }
+
+    public static function closeConnection()
+    {
+        self::$connection = null;
+    }
+}

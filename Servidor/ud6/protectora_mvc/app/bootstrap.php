@@ -1,45 +1,54 @@
 <?php
 
-/**
+/*
  * @author: Antonio Ríos Casado
- *
- * descripcion: 
- *
- * fecha: 17/11/2025
- *
- * @license: Proprietary 
  * 
- * @package: protectora_mvc\app\bootstrap.php
+ * Fecha : 20-11-2025
  *
- * @version: 1.0
  */
 
-Define('APP_ROOT', realpath(__DIR__ . '/..'));
-Define('APP_DIR', APP_ROOT . '/app');
-Define('PUBLIC_DIR', APP_ROOT . '/public');
-Define('VENDOR_DIR', APP_ROOT . '/vendor');
-Define('VIEWS_DIR', APP_ROOT . '/views');
+define('APP_ROOT', __DIR__);
+define('APP_DIR', APP_ROOT . '/app');
+define('PUBLIC_DIR', APP_ROOT . '/public');
+define('CONFIG_DIR', APP_ROOT . '/config');
+define('VENDOR_DIR', APP_ROOT . '/vendor');
+define('TMP_DIR', APP_ROOT . '/tmp');
 
+require_once VENDOR_DIR . "/autoload.php";
 
-require_once APP_DIR . '/config/parametros.php';
+use Dotenv\Dotenv;
 
-require_once VENDOR_DIR . '/autoload.php';
-
-use Dotnv\Dotenv;
-
-try {
+try{
     $dotenv = Dotenv::createImmutable(APP_ROOT);
     $dotenv->load();
 
-    //Validar que las variables de entorno existen
-    $dotenv->required(['DBHOST', 'DBNAME', 'DBUSER', 'DBPASS', 'DBPORT'])->notEmpty();
-} catch (Exception $e) {
-    die('Error loading .env file: ' . $e->getMessage());
+    $dotenv->required([
+        "DBHOST",
+        "DBNAME",
+        "DBUSER",
+        "DBPASS",
+        "DBPORT"
+    ])->notEmpty();
+
+}catch(Exception $e){
+    die("Error cargando configuracion: ".$e->getMessage());
 }
 
-//configuracion de base de datos 
-Define('DBHOST', $_ENV['DBHOST' ?? 'localhost']);
-Define('DBNAME', $_ENV['DBNAME' ?? 'protectora_animales']);
-Define('DBUSER', $_ENV['DBUSER'] ?? 'root');
-Define('DBPASS', $_ENV['DBPASS'] ?? '');
-Define('DBPORT', $_ENV['DBPORT'] ?? '3306');
+const DBHOST = $_ENV["DBHOST"] ?? "localhost";
+const DBNAME = $_ENV["DBNAME"] ?? "bd_superheroes";
+const DBUSER = $_ENV["DBUSER"] ?? "usuario";
+const DBPASS = $_ENV["DBPASS"] ?? "usuario";
+const DBPORT = $_ENV["DBPORT"] ?? "3306";
+
+const APP_ENV = $_ENV["APP_ENV"] ?? "development";
+const APP_DEBUG = $_ENV["APP_DEBUG"] ?? true;
+
+if(APP_ENV === "development" || APP_DEBUG === true){
+    ini_set("display_errors", 1);
+    ini_set("display_startup_errors", 1);
+    error_reporting(E_ALL);
+}else{
+    ini_set("display_errors", 0);
+    ini_set("display_startup_errors", 0);
+    error_reporting(E_ALL & E_DEPRECATED);
+}
