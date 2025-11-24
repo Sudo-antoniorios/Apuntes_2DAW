@@ -1,0 +1,30 @@
+<!--
+Autor: Antonio Ríos Casado
+Fecha: 24/11/2025
+Descripción: Captura el evento mouseover en un botón y cambia su color.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const button = document.getElementById("button");
+
+        button.addEventListener("mouseover", function(){
+            button.style.backgroundColor = "yellow"
+        })
+
+         boton.addEventListener("mouseout", function() {
+            boton.style.backgroundColor = "red";
+        })
+    </script>
+</head>
+<body>
+    <h2>Botón de prueba</h2>
+    <button id="button">Soy un botón</button>
+
+</body>
+</html>

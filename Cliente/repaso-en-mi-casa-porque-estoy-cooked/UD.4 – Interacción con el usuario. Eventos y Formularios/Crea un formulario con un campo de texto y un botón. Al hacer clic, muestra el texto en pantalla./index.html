@@ -1,0 +1,43 @@
+<!--
+Autor: Antonio Ríos Casado
+Fecha: 24/11/2025
+Descripción: Crea un formulario con un campo de texto y un botón.
+             Al hacer clic, muestra el texto en pantalla.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Ejemplo</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #resultado { margin-top: 20px; font-weight: bold; color: rgb(255, 255, 255); }
+  </style>
+</head>
+<body>
+
+  <h2>Formulario de texto</h2>
+  <input type="text" id="inputTexto" placeholder="Escribe algo aquí">
+  <button id="btnMostrar">Mostrar texto</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    // Obtener referencias a los elementos
+const input = document.getElementById('inputTexto');
+const boton = document.getElementById('btnMostrar');
+const resultado = document.getElementById('resultado');
+
+// Agregar evento al botón
+boton.addEventListener("click", () => {
+  const texto = input.value;        // Tomar el valor del input
+  resultado.textContent = texto;    // Mostrar en pantalla
+  input.value = '';                 // Limpiar el input (opcional)
+});
+  </script>
+
+</body>
+</html>
+

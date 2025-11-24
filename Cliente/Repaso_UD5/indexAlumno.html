@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego de los Topos - Versión JS</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<!-- 
+-------------------------------------------------------
+ESTE ARCHIVO SOLO MUESTRA EL RESULTADO QUE DEBE CREAR
+EL CÓDIGO JAVASCRIPT. NO COPIAR ESTO EN index.js.
+-------------------------------------------------------
+-->
+
+<!-- FORMULARIO DE DATOS DEL JUGADOR -->
+<form id="formulario">
+  <label>Nombre:
+    <input type="text" id="nombre">
+  </label><br>
+  <label>Fecha de nacimiento:
+    <input type="date" id="fecha">
+  </label><br>
+
+  <!-- Selección de color por cuadrados -->
+  <div style="margin: 10px 0;">
+    <p>Color de fondo:</p>
+    <table style="margin: 10px auto; border-collapse: collapse; background: transparent;">
+      <tr>
+        <td style="padding: 5px; text-align: center;">
+          <input type="radio" name="color" value="Lightblue" checked><br>
+          <div style="width: 40px; height: 40px; background: Lightblue; border: 5px solid white; margin-top: 5px;"></div>
+        </td>
+        <td style="padding: 5px; text-align: center;">
+          <input type="radio" name="color" value="Lightgreen"><br>
+          <div style="width: 40px; height: 40px; background: Lightgreen; border: 5px solid white; margin-top: 5px;"></div>
+        </td>
+        <td style="padding: 5px; text-align: center;">
+          <input type="radio" name="color" value="Lightyellow"><br>
+          <div style="width: 40px; height: 40px; background: Lightyellow; border: 5px solid white; margin-top: 5px;"></div>
+        </td>
+        <td style="padding: 5px; text-align: center;">
+          <input type="radio" name="color" value="Lightpink"><br>
+          <div style="width: 40px; height: 40px; background: Lightpink; border: 5px solid white; margin-top: 5px;"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <button type="submit">Enviar</button>
+</form>
+
+<!-- PANTALLA DEL JUEGO (GENERADA CON JS TRAS ENVIAR FORMULARIO) -->
+<h2>Jugador: <span id="nombreJugador">[Nombre]</span> | Puntuación: <span id="puntos">0</span></h2>
+<button id="btnCerrar">Cerrar sesión</button>
+<button id="btnComenzar">Comenzar</button>
+
+<!-- TABLA DE JUEGO: 3x3 AGUJEROS -->
+<table id="tablaJuego">
+  <tr>
+    <td><img src="imagenes/agujero.png" width="100"></td>
+    <td><img src="imagenes/agujero.png" width="100"></td>
+    <td><img src="imagenes/agujero.png" width="100"></td>
+  </tr>
+  <tr>
+    <td><img src="imagenes/agujero.png" width="100"></td>
+    <td><img src="imagenes/agujero.png" width="100"></td>
+    <td><img src="imagenes/agujero.png" width="100"></td>
+  </tr>
+  <tr>
+    <td><img src="imagenes/agujero.png" width="100"></td>
+    <td><img src="imagenes/agujero.png" width="100"></td>
+    <td><img src="imagenes/agujero.png" width="100"></td>
+  </tr>
+</table>
+
+<!-- RECORDATORIO -->
+<!-- TODO ESTO DEBE GENERARSE CON JAVASCRIPT, NO VA EN HTML REAL -->
+<!-- <script src="index.js"></script> -->
+
+</body>
+</html>
