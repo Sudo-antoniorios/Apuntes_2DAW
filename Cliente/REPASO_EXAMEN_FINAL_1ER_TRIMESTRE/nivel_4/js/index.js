@@ -30,3 +30,38 @@ Si todo está bien: "Persona creada correctamente"
 Si hay error: el mensaje del error.
 */
 
+import { Persona } from "./Persona.js";
+
+function crearInterfaz(){
+    const inputNombre = document.createElement("input");
+    inputNombre.placeholder = "Nombre de la persona";
+    document.body.append(inputNombre);
+
+    const inputEdad = document.createElement("input");
+    inputEdad.placeholder = "Edad de la persona";
+    document.body.append(inputEdad);
+
+    const botonCrearPersona = document.createElement("button");
+    botonCrearPersona.textContent = "Crear Persona";
+    document.body.append(botonCrearPersona);
+    botonCrearPersona.addEventListener("click", () =>{
+        let persona;
+        const nombre = inputNombre.value;
+        const edad = inputEdad.value;
+        
+        try{
+            const persona1 = new Persona(nombre,edad)
+            alert("Persona creada")
+            console.log(persona1)
+
+        }catch(error){
+            alert(error.message);
+            return;
+        }
+
+    })
+
+    
+}
+
+crearInterfaz()
