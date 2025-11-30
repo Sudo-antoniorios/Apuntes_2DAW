@@ -37,5 +37,21 @@ export class Persona{
         this.#edad = edadNum;
     }
 
+    guardarEnLocalStorage(){
+        localStorage.setItem("Persona", JSON.stringify({
+            nombre : this.nombre,
+            edad : this.edad
+        }
+        ))
+    }
+
+    static obtenerDesdeLocalStorage(){
+        if (JSON.parse(localStorage.getItem("Persona"))){
+            return JSON.parse(localStorage.getItem("Persona")); 
+        }else{
+            return null;
+        }
+    }
+
     
 }

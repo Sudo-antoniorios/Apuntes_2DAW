@@ -53,6 +53,7 @@ function crearInterfaz(){
             const persona1 = new Persona(nombre,edad)
             alert("Persona creada")
             console.log(persona1)
+            persona1.guardarEnLocalStorage()
 
         }catch(error){
             alert(error.message);
